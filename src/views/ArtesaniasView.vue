@@ -1,0 +1,44 @@
+<script setup>
+import Tarjeta from '../components/UI/Tarjeta.vue'
+import { ref, onMounted, watch, computed, onUpdated, onBeforeMount, onBeforeUpdate } from 'vue'
+import {productosDb} from '../data/productosData'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
+
+const artesaniasRef = ref([])
+  
+onMounted(()=>{
+    artesaniasRef.value = productosDb.filter(i => i.esArte === false)
+})
+
+
+</script>
+
+<template>
+  <main>
+
+    <div class="cards-list">
+        <h1 class="caveat">Artesanias</h1>
+       <Tarjeta 
+          :productos="artesaniasRef"
+          :esFavorito = false
+       />
+    </div>
+  </main>
+</template>
+
+<style scoped>
+  .cards-list {
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  @media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+</style>

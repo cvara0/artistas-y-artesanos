@@ -1,0 +1,24 @@
+{
+  "name": "art-art-arg-vue",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@formkit/themes": "^1.6.5",
+    "@formkit/vue": "^1.6.5",
+    "pinia": "^2.1.7",
+    "swiper": "^11.1.3",
+    "vue": "^3.4.21",
+    "vue-flux": "^7.0.0-beta.6",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.8"
+  }
+}

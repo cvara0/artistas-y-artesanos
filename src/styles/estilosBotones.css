@@ -1,0 +1,21 @@
+
+
+.boton-nav{
+	color: #18272F;
+  font-size: x-large;
+  position: relative;
+  text-decoration: none;
+  transition: font-size 0.5s ease;
+}
+
+.boton-nav:hover{
+  font-size: xx-large;
+  font-weight: bolder;
+  color:#58A5FC;
+  transition: font-size 0.5s ease; 
+}
+.boton-nav:focus{
+  font-size: x-large;
+  font-weight: bolder;
+  color: #58A5FC;
+}
