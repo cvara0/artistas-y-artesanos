@@ -28,8 +28,8 @@ const agregarFavorito = (producto) => {
 
     const favoritosStorage = localStorage.getItem('favoritos')
     favoritos.value = JSON.parse(favoritosStorage)
-    
-    const existeFavorito = favoritos.value.findIndex(i => i.idProducto === producto.idProducto)
+    if(favoritos.value !== null){
+      const existeFavorito = favoritos.value.findIndex(i => i.idProducto === producto.idProducto)
     if(existeFavorito<0){
       favoritos.value.push(producto)
       guardarLocalStorage()
@@ -37,7 +37,9 @@ const agregarFavorito = (producto) => {
     } else{
         alert("Producto ya agregado a favoritos anteriormente")
         return
-    } 
+    }
+    }
+     
   }
   const guardarLocalStorage = () => {
     localStorage.setItem('favoritos',JSON.stringify(favoritos.value))
