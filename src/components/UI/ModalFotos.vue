@@ -1,6 +1,7 @@
 <script setup>
 import RatingStar from './RatingStar.vue'
 import { computed, onBeforeMount, onBeforeUpdate, onMounted, ref, watch } from 'vue'
+import { useFavoritosStore } from '@/stores/useFavoritosStore';
 
 const props = defineProps({
   producto: {
@@ -17,7 +18,24 @@ const props = defineProps({
   }
 })
 
-defineEmits(['agregar-favorito','quitar-favorito'])
+const favoritosStore = useFavoritosStore()
+
+const agregarFavorito = (producto) => {
+  const yaExiste = favoritosStore.favoritos.find(i => i.idProducto === producto.idProducto)
+  if(yaExiste){
+    alert("Producto ya fue agragado a favoritos anteriormente")
+    return
+  }else{
+    favoritosStore.favoritos.push(producto)
+    alert("Producto agregado a favoritos")
+  }
+}
+
+const quitarFavorito = (idProducto) => {
+  favoritosStore.favoritos = favoritosStore.favoritos.filter(i => i.idProducto !== idProducto)
+  alert("Producto eliminado")
+}
+
 
 
 </script>
@@ -69,9 +87,9 @@ defineEmits(['agregar-favorito','quitar-favorito'])
                
                 <!--<RatingStar></RatingStar>-->
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                <button v-if="props.esFavorito" @click="$emit('quitar-favorito',producto.idProducto)" type="button" class="btn btn-outline-danger">Quitar</button>
+                <button v-if="props.esFavorito" @click="quitarFavorito(producto.idProducto)" data-dismiss="modal" type="button" class="btn btn-outline-danger">Quitar</button>
                 <button type="button" class="btn btn-outline-success">Contactar</button>
-                <button v-if="!esFavorito" @click="$emit('agregar-favorito',producto)" type="button" class="btn btn-outline-danger">♥</button>
+                <button v-if="!esFavorito" @click="agregarFavorito(producto)" type="button" class="btn btn-outline-danger">♥</button>
                 
               </div>
             </div>

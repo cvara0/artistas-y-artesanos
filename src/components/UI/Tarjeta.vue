@@ -22,41 +22,7 @@ const buscarAutor = (i) => {
     state.usuario = usuariosDb.find(u => u.idUsuario === i)
 }
 
-const favoritos = ref([])
 
-const agregarFavorito = (producto) => {
-
-    const favoritosStorage = localStorage.getItem('favoritos')
-    favoritos.value = JSON.parse(favoritosStorage)
-    if(favoritos.value === null){
-      favoritos.value.push(producto)
-      guardarLocalStorage()
-      alert("Producto agregado a favoritos")
-    }else{
-      const existeFavorito = favoritos.value.findIndex(i => i.idProducto === producto.idProducto)
-    if(existeFavorito<0){
-      favoritos.value.push(producto)
-      guardarLocalStorage()
-      alert("Producto agregado a favoritos")
-    } else{
-        alert("Producto ya agregado a favoritos anteriormente")
-        return
-    }
-    }
-     
-  }
-  const guardarLocalStorage = () => {
-    localStorage.setItem('favoritos',JSON.stringify(favoritos.value))
-  }
-
-  const quitarFavorito = (idProducto) => {
-    const favoritosStorage = localStorage.getItem('favoritos')
-    favoritos.value = JSON.parse(favoritosStorage)
-    favoritos.value = favoritos.value.filter(i => i.idProducto !== idProducto)
-    alert("Producto eliminado de favoritos")
-    guardarLocalStorage()
-    location.reload()
-  }
   
 
 
@@ -81,8 +47,6 @@ const agregarFavorito = (producto) => {
             :producto = "producto"
             :autor = "state.usuario"
             :esFavorito = "props.esFavorito"
-            @agregar-favorito ="agregarFavorito"
-            @quitar-favorito = "quitarFavorito"
           />
   </div>
         
