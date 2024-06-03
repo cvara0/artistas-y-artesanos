@@ -22,7 +22,7 @@ onMounted(()=>{
 <template>
   <main>
    
-    <div class="cards-list">
+    <div class="cards-list animate__animated animate__fadeIn">
         <h1 class="caveat">Mis Favoritos</h1>
        <Tarjeta 
           :productos = "favoritosRef"

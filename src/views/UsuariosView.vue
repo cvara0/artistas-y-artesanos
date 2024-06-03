@@ -13,7 +13,7 @@ onMounted(()=>{
 </script>
 
 <template>
-  <main>
+  <main class="animate__animated animate__fadeIn">
   <!--
     <div class="cards-list">
         <h1 class="caveat">Obras de Arte</h1>

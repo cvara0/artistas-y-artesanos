@@ -16,7 +16,7 @@ onMounted(()=>{
 <template>
   <main>
 
-    <div class="cards-list">
+    <div class="cards-list animate__animated animate__fadeIn">
         <h1 class="caveat">Artesanias</h1>
        <Tarjeta 
           :productos="artesaniasRef"

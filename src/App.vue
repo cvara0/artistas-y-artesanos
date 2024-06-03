@@ -18,7 +18,7 @@
     </nav>
     <br>
     <main>
-      <RouterView class="animate__animated animate__fadeIn"/>
+      <RouterView/>
     </main>
     <hr>
     <footer>

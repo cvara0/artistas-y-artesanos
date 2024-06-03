@@ -7,7 +7,7 @@ import ModalRegistrarse from './ModalRegistrarse.vue'
     <header class="container-header animate__animated animate__zoomIn">
       <h1 class="item-header caveat">Arte y Artesanías Argentinas</h1>
       <div class="item-header">
-        <a class="item-header caveat" data-toggle="modal" data-target="#registrarseModalCenter"   href=#>Registrarse</a>
+        <a class="item-header caveat" data-toggle="modal" data-target="#registrarseModalCenter" href=#>Registrarse</a>
         <a class="item-header caveat" data-toggle="modal" data-target="#ingresarModalCenter"  href=#>Ingresar</a>
       </div>
       <ModalIngresar></ModalIngresar>
