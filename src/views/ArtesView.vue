@@ -26,6 +26,7 @@ onMounted(()=>{
 </template>
 
 <style scoped>
+
   .cards-list {
     z-index: 0;
     width: 100%;

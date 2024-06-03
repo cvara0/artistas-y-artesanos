@@ -8,7 +8,7 @@
 <template>
     <Header></Header>
     <hr>
-    <nav class="container-nav caveat">
+    <nav class="container-nav caveat animate__animated animate__fadeInUp">
         <BotonNav ruta="home">Inicio</BotonNav>
         <BotonNav ruta="artes">Obras de Arte</BotonNav>
         <BotonNav ruta="artesanias">Artesanias</BotonNav>
@@ -18,7 +18,7 @@
     </nav>
     <br>
     <main>
-      <RouterView/>
+      <RouterView class="animate__animated animate__fadeIn"/>
     </main>
     <hr>
     <footer>

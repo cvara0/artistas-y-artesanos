@@ -63,7 +63,7 @@ const agregarFavorito = (producto) => {
     </div>
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
   </div>
-  <div v-for="producto in props.productos" :key="producto.idProducto" >
+  <div v-for="producto in props.productos" :key="producto.idProducto">
     <div @click="buscarAutor(producto.idUsuario)" class="card 1" :data-toggle="`modal`" :data-target="`#fotosModalCenter${producto.idProducto}`">
             <div class="card_image"> <img :src="producto.urlImagen1"/> </div>
             <div class="card_title title-white">
@@ -84,6 +84,7 @@ const agregarFavorito = (producto) => {
 </template>
 
 <style scoped>
+
 
 .card {
   margin: 20px auto;

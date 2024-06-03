@@ -4,7 +4,7 @@ import SlideInicio from '../components/UI/SlideInicio.vue'
 </script>
 
 <template>
-   <SlideInicio></SlideInicio>
+   <SlideInicio class="animate__animated animate__zoomIn"></SlideInicio>
     <hr>
     <section id="about">
         <h1 class="caveat">Quienes Somos</h1>
