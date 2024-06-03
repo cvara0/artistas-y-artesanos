@@ -13,10 +13,10 @@ onMounted(()=>{
 </script>
 
 <template>
-  <main class="animate__animated animate__fadeIn">
+  <main>
    
     <div class="cards-list">
-        <h1 class="caveat">Obras de Arte</h1>
+        <h1 class="caveat animate__animated animate__zoomIn">Obras de Arte</h1>
        <Tarjeta 
           :productos="artesRef"
           :esFavorito = false
