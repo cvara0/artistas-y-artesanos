@@ -28,7 +28,11 @@ const agregarFavorito = (producto) => {
 
     const favoritosStorage = localStorage.getItem('favoritos')
     favoritos.value = JSON.parse(favoritosStorage)
-    if(favoritos.value !== null){
+    if(favoritos.value === null){
+      favoritos.value.push(producto)
+      guardarLocalStorage()
+      alert("Producto agregado a favoritos")
+    }else{
       const existeFavorito = favoritos.value.findIndex(i => i.idProducto === producto.idProducto)
     if(existeFavorito<0){
       favoritos.value.push(producto)
