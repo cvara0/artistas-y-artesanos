@@ -5,12 +5,10 @@ import {artesDb} from '../data/artesData'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import { useFavoritosStore } from '@/stores/useFavoritosStore';
 
-const favoritosRef = ref([])
-
 const favoritosStore = useFavoritosStore()
 
 onMounted(()=>{
-   
+   favoritosStore.favoritos = JSON.parse(localStorage.getItem('favoritos'))
 })
 
 

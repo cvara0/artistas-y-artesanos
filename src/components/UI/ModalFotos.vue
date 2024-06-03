@@ -27,12 +27,14 @@ const agregarFavorito = (producto) => {
     return
   }else{
     favoritosStore.favoritos.push(producto)
+    localStorage.setItem('favoritos',JSON.stringify(favoritosStore.favoritos))
     alert("Producto agregado a favoritos")
   }
 }
 
 const quitarFavorito = (idProducto) => {
   favoritosStore.favoritos = favoritosStore.favoritos.filter(i => i.idProducto !== idProducto)
+  localStorage.setItem('favoritos',JSON.stringify(favoritosStore.favoritos))
   alert("Producto eliminado")
 }
 
