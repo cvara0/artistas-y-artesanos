@@ -1,15 +1,12 @@
 <script setup>
 import Tarjeta from '../components/UI/Tarjeta.vue'
 import { ref, onMounted, watch, computed, onUpdated, onBeforeMount, onBeforeUpdate } from 'vue'
-import {productosDb} from '../data/productosData'
+import { useProductosStore } from '@/stores/useProductosStore';
+
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 
-const artesRef = ref([])
+const productosStore = useProductosStore()
   
-onMounted(()=>{
-    artesRef.value = productosDb.filter(i => i.esArte === true)
-})
-
 </script>
 
 <template>
@@ -18,7 +15,7 @@ onMounted(()=>{
     <div class="cards-list">
         <h1 class="caveat animate__animated animate__zoomIn">Obras de Arte</h1>
        <Tarjeta 
-          :productos="artesRef"
+          :productos="productosStore.artes"
           :esFavorito = false
        />
     </div>

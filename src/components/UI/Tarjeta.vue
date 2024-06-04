@@ -5,7 +5,7 @@ import { computed, reactive, ref, watch } from 'vue';
 
 const props = defineProps({
   productos: {
-    type: Object,
+    type: Array,
     required: true
   },
   esFavorito: {
@@ -23,7 +23,7 @@ const buscarAutor = (i) => {
 }
 
 
-  
+  //TODO cambiar props por stores y agregar :on-keydown="buscarProducto"
 
 
 </script>
@@ -31,7 +31,7 @@ const buscarAutor = (i) => {
 <template>
    <div class="input-group input-group-sm">
      <div class="input-group-prepend"> 
-      <span class="input-group-text caveat" id="inputGroup-sizing-sm">Buscar</span>
+      <span class="input-group-text caveat"  id="inputGroup-sizing-sm">Buscar</span>
     </div>
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
   </div>
