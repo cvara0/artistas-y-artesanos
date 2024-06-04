@@ -22,7 +22,7 @@ onMounted(()=>{
         <h1 class="caveat animate__animated animate__zoomIn">Mis Favoritos</h1>
        <Tarjeta 
           :productos = "favoritosStore.favoritos"
-          :esFavorito = true
+          :esFavorito = "true"
        />
     </div>
   </main>

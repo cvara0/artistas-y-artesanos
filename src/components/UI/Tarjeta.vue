@@ -1,7 +1,7 @@
 <script setup>
 import ModalFotos from '@/components/UI/ModalFotos.vue'
 import {usuariosDb} from '../../data/usuariosData'
-import { computed, reactive, ref, watch } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 
 const props = defineProps({
   productos: {
@@ -14,6 +14,9 @@ const props = defineProps({
   }
 })
 
+const productosRef = ref([])
+const aBuscar = ref('')
+
 const state = reactive({
   usuario : {}
 })
@@ -22,6 +25,17 @@ const buscarAutor = (i) => {
     state.usuario = usuariosDb.find(u => u.idUsuario === i)
 }
 
+watch(aBuscar, ()=>{
+    productosRef.value = props.productos
+    productosRef.value = productosRef.value.filter(i => i.titulo.toLowerCase().includes(aBuscar.value.toLowerCase()))
+
+},{
+  deep: false
+})
+
+onMounted(()=>{
+  productosRef.value = props.productos
+})
 
   //TODO cambiar props por stores y agregar :on-keydown="buscarProducto"
 
@@ -31,11 +45,11 @@ const buscarAutor = (i) => {
 <template>
    <div class="input-group input-group-sm">
      <div class="input-group-prepend"> 
-      <span class="input-group-text caveat"  id="inputGroup-sizing-sm">Buscar</span>
+      <span class="input-group-text caveat" id="inputGroup-sizing-sm">Buscar</span>
     </div>
-    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    <input type="text" class="form-control" v-model="aBuscar" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
   </div>
-  <div v-for="producto in props.productos" :key="producto.idProducto">
+  <div v-for="producto in productosRef" :key="producto.idProducto">
     <div @click="buscarAutor(producto.idUsuario)" class="card 1" :data-toggle="`modal`" :data-target="`#fotosModalCenter${producto.idProducto}`">
             <div class="card_image"> <img :src="producto.urlImagen1"/> </div>
             <div class="card_title title-white">

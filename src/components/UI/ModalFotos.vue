@@ -13,7 +13,7 @@ const props = defineProps({
     required:true
   },
   esFavorito:{
-    type: Object,
+    type: Boolean,
     required: true
   }
 })

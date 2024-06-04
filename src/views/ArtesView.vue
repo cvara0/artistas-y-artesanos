@@ -1,11 +1,11 @@
 <script setup>
 import Tarjeta from '../components/UI/Tarjeta.vue'
 import { ref, onMounted, watch, computed, onUpdated, onBeforeMount, onBeforeUpdate } from 'vue'
-import { useProductosStore } from '@/stores/useProductosStore';
+import { useArtesStore } from '@/stores/useArtesStore';
 
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 
-const productosStore = useProductosStore()
+const artesStore = useArtesStore()
   
 </script>
 
@@ -15,8 +15,8 @@ const productosStore = useProductosStore()
     <div class="cards-list">
         <h1 class="caveat animate__animated animate__zoomIn">Obras de Arte</h1>
        <Tarjeta 
-          :productos="productosStore.artes"
-          :esFavorito = false
+          :productos="artesStore.artes"
+          :esFavorito = "false"
        />
     </div>
   </main>
