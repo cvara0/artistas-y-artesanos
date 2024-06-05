@@ -6,12 +6,10 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import { useFavoritosStore } from '@/stores/useFavoritosStore';
 
 const favoritosStore = useFavoritosStore()
-
+const favoritosRef = ([])
 onMounted(()=>{
-   favoritosStore.favoritos = JSON.parse(localStorage.getItem('favoritos'))
+    favoritosRef.values = favoritosStore.favoritos
 })
-
-
 
 </script>
 

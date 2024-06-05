@@ -20,26 +20,6 @@ const props = defineProps({
 
 const favoritosStore = useFavoritosStore()
 
-const agregarFavorito = (producto) => {
-  const yaExiste = favoritosStore.favoritos.find(i => i.idProducto === producto.idProducto)
-  if(yaExiste){
-    alert("Producto ya fue agragado a favoritos anteriormente")
-    return
-  }else{
-    favoritosStore.favoritos.push(producto)
-    localStorage.setItem('favoritos',JSON.stringify(favoritosStore.favoritos))
-    alert("Producto agregado a favoritos")
-  }
-}
-
-const quitarFavorito = (idProducto) => {
-  favoritosStore.favoritos = favoritosStore.favoritos.filter(i => i.idProducto !== idProducto)
-  localStorage.setItem('favoritos',JSON.stringify(favoritosStore.favoritos))
-  alert("Producto eliminado")
-}
-
-
-
 </script>
 
 <template>
@@ -89,9 +69,9 @@ const quitarFavorito = (idProducto) => {
                
                 <!--<RatingStar></RatingStar>-->
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                <button v-if="props.esFavorito" @click="quitarFavorito(producto.idProducto)" data-dismiss="modal" type="button" class="btn btn-outline-danger">Quitar</button>
+                <button v-if="props.esFavorito" @click="favoritosStore.eliminarFavorito(producto.idProducto)" data-dismiss="modal" type="button" class="btn btn-outline-danger">Quitar</button>
                 <button type="button" class="btn btn-outline-success">Contactar</button>
-                <button v-if="!esFavorito" @click="agregarFavorito(producto)" type="button" class="btn btn-outline-danger">♥</button>
+                <button v-if="!esFavorito" @click="favoritosStore.guardarFavorito(producto)" type="button" class="btn btn-outline-danger">♥</button>
                 
               </div>
             </div>

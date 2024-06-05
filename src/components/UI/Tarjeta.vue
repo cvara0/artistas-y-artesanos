@@ -24,7 +24,6 @@ const state = reactive({
 const buscarAutor = (i) => {
     state.usuario = usuariosDb.find(u => u.idUsuario === i)
 }
-
 watch(aBuscar, ()=>{
     productosRef.value = props.productos
     productosRef.value = productosRef.value.filter(i => i.titulo.toLowerCase().includes(aBuscar.value.toLowerCase()))
@@ -45,7 +44,7 @@ onMounted(()=>{
 <template>
    <div class="input-group input-group-sm">
      <div class="input-group-prepend"> 
-      <span class="input-group-text caveat" id="inputGroup-sizing-sm">Buscar</span>
+      <span class="input-group-text caveat" id="inputGroup-sizing-sm">Buscar {{ aBuscar }}</span>
     </div>
     <input type="text" class="form-control" v-model="aBuscar" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
   </div>
