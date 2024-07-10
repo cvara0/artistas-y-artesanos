@@ -8,14 +8,10 @@ const props = defineProps({
     type: Object,
     required:true
   },
-  autor: {
+/*   autor: {
     type: Object,
     required:true
-  },
-  esFavorito:{
-    type: Boolean,
-    required: true
-  }
+  } */
 })
 
 const favoritosStore = useFavoritosStore()
@@ -27,18 +23,19 @@ const favoritosStore = useFavoritosStore()
 
     <!-- Modal -->
     <div class="modal fade" :id="`fotosModalCenter${producto.idProducto}`" tabindex="-1" role="dialog" aria-labelledby="fotosModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document"> 
+          <div class="modal-dialog modal-lg modal-dialog-centered" role="document"> 
          
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="fotosModalLongTitle">{{producto.titulo}}</h5>
-                <p>Por {{ autor.nombre}} </p>
+                <p>Por {{ autor.nombre }} </p>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>-->
               </div>
               <div class="modal-body">
-                <div :id="`carouselFotosIndicators${producto.idProducto}`" class="carousel slide" data-ride="carousel">
+                <img class="d-block w-100" :src="producto.urlImagen1" alt="First slide">
+                <!-- <div :id="`carouselFotosIndicators${producto.idProducto}`" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li :data-target="`#carouselFotosIndicators${producto.idProducto}`" data-slide-to="0" class="active"></li>
                       <li :data-target="`#carouselFotosIndicators${producto.idProducto}`" data-slide-to="1"></li>
@@ -63,7 +60,7 @@ const favoritosStore = useFavoritosStore()
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Siguiente</span>
                     </a>
-                  </div>
+                  </div> -->
               </div>
               <div class="modal-footer">
                

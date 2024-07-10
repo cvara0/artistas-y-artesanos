@@ -11,14 +11,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/artes',
-      name: 'artes',
-      component: () => import('../views/ArtesView.vue')
-    },
-    {
-      path: '/artesanias',
-      name: 'artesanias',
-      component: () => import('../views/ArtesaniasView.vue')
+      path: '/obras/:id_tipo_obra',
+      name: 'obras',
+      component: () => import('../views/ObrasView.vue')
     },
     {
       path: '/favoritos',
@@ -29,6 +24,16 @@ const router = createRouter({
       path: '/usuarios',
       name: 'usuarios',
       component: () => import('../views/UsuariosView.vue')
+    },
+    {
+      path: '/novedades',
+      name: 'novedades',
+      component: () => import('../views/ArtesView.vue')
+    },
+    {
+      path: '/contacto',
+      name: 'contacto',
+      component: () => import('../views/ArtesView.vue')
     }
   ]
 })

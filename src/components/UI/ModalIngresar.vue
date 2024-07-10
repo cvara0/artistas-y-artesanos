@@ -40,9 +40,3 @@ const state = reactive({
 </div>
     <!--Fin Modal -->
 </template>
-
-
-
-<style lang="scss" scoped>
-
-</style>

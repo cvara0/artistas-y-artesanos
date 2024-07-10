@@ -116,10 +116,3 @@
 </div>
     <!--Fin Modal -->
 </template>
-
-<style>
-.formkit-wrapper{
-    max-width: 100%;
-}
-
-</style>

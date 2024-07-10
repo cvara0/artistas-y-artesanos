@@ -44,32 +44,32 @@ const transitions = shallowReactive([Fade]);
 </script>
 
 <template>
-	<VueFlux
-	:options="options"
-	:rscs="rscs"
-	:transitions="transitions"
-	ref="$vueFlux">
+		<VueFlux
+		:options="options"
+		:rscs="rscs"
+		:transitions="transitions"
+		ref="$vueFlux">
 
-	<template #preloader="preloaderProps">
-		<FluxPreloader v-bind="preloaderProps" />
-	</template>
+		<template #preloader="preloaderProps">
+			<FluxPreloader v-bind="preloaderProps" />
+		</template>
 
-	<template #caption="captionProps">
-		<FluxCaption v-bind="captionProps" />
-	</template>
+		<template #caption="captionProps">
+			<FluxCaption v-bind="captionProps" />
+		</template>
 
-	<template #controls="controlsProps">
-		<FluxControls v-bind="controlsProps" />
-	</template>
+		<template #controls="controlsProps">
+			<FluxControls v-bind="controlsProps" />
+		</template>
 
-	<template #pagination="paginationProps">
-		<FluxPagination v-bind="paginationProps" />
-	</template>
+		<template #pagination="paginationProps">
+			<FluxPagination v-bind="paginationProps" />
+		</template>
 
-	<template #index="indexProps">
-		<FluxIndex v-bind="indexProps" />
-	</template>
-</VueFlux>
+		<template #index="indexProps">
+			<FluxIndex v-bind="indexProps" />
+		</template>
+	</VueFlux>
 </template>
 
 

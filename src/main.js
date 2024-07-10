@@ -1,5 +1,4 @@
 import './styles/styles.css'
-import './styles/estilosBotones.css'
 import 'animate.css';
 import 'vue-flux/style.css'
 import { plugin, defaultConfig } from '@formkit/vue'

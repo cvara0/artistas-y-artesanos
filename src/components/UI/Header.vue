@@ -4,46 +4,27 @@ import ModalRegistrarse from './ModalRegistrarse.vue'
 </script>
 
 <template>
-    <header class="container-header">
-      <h1 class="item-header caveat animate__animated animate__fadeInLeft">Arte y Artesanías Argentinas</h1>
-      <div class="item-header">
-        <a class="item-header caveat" data-toggle="modal" data-target="#registrarseModalCenter" href=#>Registrarse</a>
-        <a class="item-header caveat" data-toggle="modal" data-target="#ingresarModalCenter"  href=#>Ingresar</a>
-      </div>
+    <header>
+        <div class="row">
+          <div class="col-xl-10 col-lg-10 col-md-8 col-sm-8 col-6">
+              <h3 class="playwrite-de-grund"> Arte y Artesanías Agentinas</h3>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6">
+              <a
+              class="button-74"
+              href="#"
+               style="text-decoration: none;"
+              > &nbsp 🔐 &nbsp</a> 
+              <a
+              class="button-74"
+              href="#"
+               style="text-decoration: none;"
+              > &nbsp 📝 &nbsp</a> 
+          </div>
+        </div>
+
       <ModalIngresar></ModalIngresar>
       <ModalRegistrarse></ModalRegistrarse>
     </header>
 </template>
 
-
-
-<style scoped>
-
-header h1{
-    font-size: 36pt;
-  }
-
-  header div a {
-    text-decoration: none;
-    font-size: large;
-  }
-
-  header {
-        display: flex;
-        align-items: center; 
-        justify-content: space-between;
-        flex-wrap: wrap;
-        background-image: url('../../assets/arg-8.png');
-        background-position: 50% 50%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        
-        }
-
-        .item-header {
-          margin: 1rem;
-          padding: 1rem;
-          justify-self: center;
-        }
-
-</style>
