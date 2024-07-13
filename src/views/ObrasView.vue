@@ -14,10 +14,10 @@ import { useObrasStore } from '@/stores/useObrasStore';
       obras.value = obrasStore.obras
     }
 
+
+
     watch(() => route.params.id_tipo_obra, (newIdTipoObra) => {
-      if (newIdTipoObra) {
         cargarObras(newIdTipoObra)
-      }
     }, { immediate: true })
 
 </script>
@@ -26,8 +26,15 @@ import { useObrasStore } from '@/stores/useObrasStore';
   <main>
 
     <div class="cards-list">
-      <h1 class="caveat animate__animated animate__zoomIn">Artesanias</h1>
-      <TarjetasObras :obras="obras" />
+      <h1 v-if="route.params.id_tipo_obra == 1 " class="playwrite-de-grund animate__animated animate__fadeInDown">Obras de Arte</h1>
+      <h1 v-if="route.params.id_tipo_obra == 2 " class="playwrite-de-grund animate__animated animate__fadeInDown">Artesanías</h1>
+      <h1 v-if="route.params.id_tipo_obra == 3 " class="playwrite-de-grund animate__animated animate__fadeInDown">Diseño Industrial</h1>
+      <h1 v-if="route.params.id_tipo_obra == 4 " class="playwrite-de-grund animate__animated animate__fadeInDown">Diseño Gráfico</h1>
+      
+      <TarjetasObras 
+        :obras="obras"
+      />
+    
     </div>
   </main>
 </template><!-- $route.params.id_tipo_obra -->

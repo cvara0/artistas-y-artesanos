@@ -30,6 +30,9 @@
   border-radius: 12px;
 }
 
+p, h5 {
+  color: aliceblue !important;
+}
 
 .body-bg{
   background-image: url("https://i.postimg.cc/Rh8kc0j6/madera-oscura.jpg");

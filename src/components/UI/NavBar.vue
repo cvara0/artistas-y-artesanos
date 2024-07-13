@@ -1,5 +1,12 @@
 <script setup>
- import {RouterLink} from 'vue-router'
+ import { onMounted, computed } from 'vue';
+import {RouterLink} from 'vue-router'
+
+const hayUsuarioActual = computed(()=>{
+    return localStorage.getItem('usuario_actual')!== null;
+})
+      // Reemplaza 'clave' con la clave que quieres verificar en el localStorage
+      
 
 </script>
 
@@ -38,13 +45,14 @@
             >Diseño Gráfico
         </RouterLink>
         <RouterLink
-            :to= "{name:'usuarios'}"
+            v-if="hayUsuarioActual"
+            :to="{ name: 'mis-obras'}"
             class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6 button-74"
             style="text-decoration: none;"
-            >Creadores
+            >Mis Obras
         </RouterLink>
         <RouterLink
-            :to= "{name:'novedades'}"
+            :to= "{name:'usuarios'}"
             class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 button-74"
             style="text-decoration: none;"
             >Novedades
