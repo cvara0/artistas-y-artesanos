@@ -24,9 +24,9 @@ const obraAEditar = reactive({
     "descripcion": ""
 })
 
-const onFileChange = (event) => {
+/* const onFileChange = (event) => {
     obraAEditar.foto = event.target.files[0];
-};
+}; */
 
 
 async function editarObra(obra) {
@@ -141,11 +141,11 @@ async function eliminarObra(id_obra, titulo) {
                                             <option value=4>Diseño Gráfico</option>
                                         </select>
                                     </div>
-                                    <div class="mb-3">
+                                <!--     <div class="mb-3">
                                         <label for="foto" class="form-label">Imagen:</label>
                                         <input type="file" class="form-control" id="foto" @change="onFileChange">
-                                    </div>
-
+                                    </div> -->
+                                    <h5 v-if="alerta.tipo =='obligatorios'" class="text-danger">{{alerta.mensaje}}</h5>
                                     <div class="row">
                                         <input type="submit" class="btn btn-outline-success col-6"
                                             value="Guardar cambios">

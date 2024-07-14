@@ -5,7 +5,7 @@ import { obrasDb } from "@/data/obrasData";
 import axios from "axios";
 
 export const useObrasStore = defineStore("obras", () => {
-  const url = 'cvara.pythonanywhere.com'//"http://127.0.0.1:5000";
+  const url = "http://127.0.0.1:5000";
 
   const obras = ref([]);
   const misObras = ref([]);
@@ -72,7 +72,7 @@ export const useObrasStore = defineStore("obras", () => {
       const ObraFd = new FormData();
       ObraFd.append("id_obra", obra.id_obra);
       ObraFd.append("id_tipo_obra", obra.id_tipo_obra);
-      ObraFd.append("foto", obra.foto);
+      //ObraFd.append("foto", obra.foto);
       ObraFd.append("titulo", obra.titulo);
       ObraFd.append("descripcion", obra.descripcion)
         console.log(ObraFd.get("foto"))

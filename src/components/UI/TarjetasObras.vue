@@ -42,7 +42,7 @@ const props = defineProps({
               <div class="modal-header row">
                 <h5 style="overflow: auto;" class="modal-title col-auto" id="fotosModalLongTitle">{{ obra.titulo }}</h5>
                 <div class="col-auto">
-                  <p>Por {{ obra.nombre }} {{ obra.apellido }} &nbsp; {{ obra.id_tipo_usuario }} </p>
+                  <b>por {{ obra.nombre }} {{ obra.apellido }} </b>
                 </div>
 
               </div>

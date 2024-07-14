@@ -110,7 +110,7 @@ const hayUsuarioActual = computed(() => {
                             <label for="foto" class="form-label">imagen:</label>
                             <input type="file" class="form-control" id="foto" @change="onFileChange">
                         </div>
-
+                        <h5 v-if="alerta.tipo =='obligatorios'" class="text-danger">{{alerta.mensaje}}</h5>
                         <div class="row">
                             <input type="submit" class="btn btn-outline-success col-6" value="Agregar obra">
                             <input type="button" class="btn btn-outline-danger col-6" data-dismiss="modal"
