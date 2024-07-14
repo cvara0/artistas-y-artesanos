@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export const useUsuariosStore = defineStore('usuarios', () => {
  
-  const url ='http://127.0.0.1:5000'
+  const url ='cvara.pythonanywhere.com'//'http://127.0.0.1:5000'
 
   const usuario= ref({})
   
@@ -53,7 +53,7 @@ export const useUsuariosStore = defineStore('usuarios', () => {
         try {
             localStorage.clear()
             location.reload()
-            const data = await axios.get(`${url}/cerrar-sesion-usuario`)
+            await axios.get(`${url}/cerrar-sesion-usuario`)
         } catch (error) {
             console.error("Error al cerrar sesion:", error)
             alert('Error al cerrar sesion desde vue')

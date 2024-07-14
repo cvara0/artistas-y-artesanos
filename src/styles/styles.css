@@ -35,11 +35,12 @@ p, h5 {
 }
 
 .body-bg{
-  background-image: url("https://i.postimg.cc/Rh8kc0j6/madera-oscura.jpg");
+  /* background-image: url("https://i.postimg.cc/DZGyWtWc/madera-negra.jpg"); */
+  background-color: #1c1100;
   background-position: 50% 50%;
   background-repeat: repeat;
   text-align: justify;
-  background-size:auto;
+  background-size:contain;
   color: aliceblue;
 }
 

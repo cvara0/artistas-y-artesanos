@@ -29,7 +29,7 @@ const props = defineProps({
         <div class="card bg-transparent" :data-toggle="`modal`" :data-target="`#fotosModalCenter${obra.id_obra}`">
           <div class="container" style="text-align: center;">
             <h5> {{ obra.titulo }} </h5>
-            <img :src="obra.foto" class="card-img-top" alt="{{obra.foto}}" />
+            <img :src="`http://127.0.0.1:5000/static/fotos/${obra.foto}`" class="card-img-top" alt="{{obra.foto}}" />
             <p>por: {{ obra.nombre }} {{ obra.apellido }}</p>
           </div>
         </div>
@@ -47,14 +47,14 @@ const props = defineProps({
 
               </div>
               <div class="modal-body">
-                <img class="d-block w-100" :src="obra.foto" alt="First slide">
+                <img class="d-block w-100" :src="`http://127.0.0.1:5000/static/fotos/${obra.foto}`" alt="First slide">
                 <hr style="border: 1px solid">
                 <p> {{ obra.descripcion }} </p>
               </div>
 
-              <button type="button" class="btn btn-outline-success">Contactar</button>
+              <button type="button" class="btn btn-success">Contactar</button>
               <br>
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
         </div>

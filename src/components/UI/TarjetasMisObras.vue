@@ -1,12 +1,12 @@
 <script setup>
 import { useObrasStore } from '@/stores/useObrasStore';
-import { computed,reactive} from 'vue';
+import { computed, reactive } from 'vue';
 
 const obrasStore = useObrasStore()
 
 const alerta = reactive({
-  tipo: "",
-  mensaje: ""
+    tipo: "",
+    mensaje: ""
 })
 
 const props = defineProps({
@@ -16,31 +16,45 @@ const props = defineProps({
     }
 })
 
- 
-const editarObra = async (obra) => {
-        if(Object.values(obra).includes('')){
-            alerta.mensaje = '*Todos los campos son obligatorios'
-            alerta.tipo = 'obligatorios'
-            timeout()
-            return
-        } 
-        await obrasStore.editarObra(obra) 
-    } 
+const obraAEditar = reactive({
+    "id_obra": 0,
+    "id_tipo_obra": 0,
+    "foto": null,
+    "titulo": "",
+    "descripcion": ""
+})
 
-    
-    function timeout(){
-        setTimeout(()=>{
+const onFileChange = (event) => {
+    obraAEditar.foto = event.target.files[0];
+};
+
+
+async function editarObra(obra) {
+    if (Object.values(obra).includes('')) {
+        alerta.mensaje = '*Todos los campos son obligatorios'
+        alerta.tipo = 'obligatorios'
+        timeout()
+        return
+    }
+    obraAEditar.id_obra = obra.id_obra
+    obraAEditar.id_tipo_obra = obra.id_tipo_obra
+    obraAEditar.titulo = obra.titulo
+    obraAEditar.descripcion = obra.descripcion
+
+    await obrasStore.editarObra(obraAEditar)
+}
+
+
+function timeout() {
+    setTimeout(() => {
         alerta.mensaje = ''
         alerta.tipo = ''
-        },3000)
-    }
+    }, 3000)
+}
 
-
-
-
-
-  
-
+async function eliminarObra(id_obra, titulo) {
+    await obrasStore.eliminarObra(id_obra, titulo)
+}
 
 
 </script>
@@ -59,16 +73,18 @@ const editarObra = async (obra) => {
     <div class="row justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 g-4 mt-1">
 
         <div v-for="obra in props.obras" :key="obra.id_obra">
-            <input type="button" class="btn btn-outline-danger" value="&nbsp ❌ &nbsp">
+            <input type="button" @click="eliminarObra(obra.id_obra, obra.titulo)" class="btn btn-outline-danger"
+                value="&nbsp ❌ &nbsp">
             <input type="button" class="btn btn-outline-warning" :data-toggle="`modal`"
                 :data-target="`#editarObraModalCenter${obra.id_obra}`" value="&nbsp 📝  &nbsp">
             <div class="col">
-                
+
                 <div class="card bg-transparent" :data-toggle="`modal`"
                     :data-target="`#fotosModalCenter${obra.id_obra}`">
                     <div class="container" style="text-align: center;">
                         <h5> {{ obra.titulo }} </h5>
-                        <img :src="obra.foto" class="card-img-top" alt="{{obra.foto}}" />
+                        <img :src="`http://127.0.0.1:5000/static/fotos/${obra.foto}`" class="card-img-top"
+                            alt="{{obra.foto}}" />
                     </div>
                 </div>
 
@@ -82,7 +98,7 @@ const editarObra = async (obra) => {
                                     obra.titulo }}</h5>
                             </div>
                             <div class="modal-body">
-                                <img class="d-block w-100" :src="obra.foto" alt="First slide">
+                                <img class="d-block w-100" :src="`http://127.0.0.1:5000/static/fotos/${obra.foto}`" alt="First slide">
                                 <hr style="border: 1px solid">
                                 <p> {{ obra.descripcion }} </p>
                             </div>
@@ -103,7 +119,7 @@ const editarObra = async (obra) => {
                             </div>
                             <div class="modal-body">
 
-                                <form @submit.prevent="editarObra(obra)" method="PATCH">
+                                <form @submit.prevent="editarObra(obra)" enctype="multipart/form-data" method="PATCH">
                                     <div class="mb-3">
                                         <label for="titulo" class="form-label">Título:</label>
                                         <input type="text" class="form-control" id="titulo" v-model="obra.titulo">
@@ -126,10 +142,10 @@ const editarObra = async (obra) => {
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="foto" class="form-label">URL de la imagen:</label>
-                                        <input type="text" class="form-control" id="foto" v-model="obra.foto">
+                                        <label for="foto" class="form-label">Imagen:</label>
+                                        <input type="file" class="form-control" id="foto" @change="onFileChange">
                                     </div>
-                                    
+
                                     <div class="row">
                                         <input type="submit" class="btn btn-outline-success col-6"
                                             value="Guardar cambios">
@@ -138,9 +154,6 @@ const editarObra = async (obra) => {
                                     </div>
 
                                 </form>
-            <pre>
-    {{ obra }}
-</pre>
                             </div>
                         </div>
                     </div>
